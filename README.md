@@ -3,20 +3,70 @@
 ## Вопросы JS
 
 <details>
-<summary>1.Что такое DOM/BOM API?</summary>
+<summary> 1. Что такое scope и hoisting в js?</summary>
 <div> 
-Ответ
+1.1 Hosting - это JS механизм при котором объявление переменных и функций всплывают на вверх скопа до того как код был выполнен. 
+
+На этапе компеляции, которая происходит перед выполнением кода, код сканируется для объявления функции переменных, 
+которые затем добавляются в память что позволяет быть использованными даже до того как они были обявлены в исходном коде.
+Декларирование и объявление поднимается в начало кода, а присвоение значений остается на своем месте.
+Мы уходим от ошибок объявления переменных.   
+```javascript
+let hoist;
+hoisting();
+function hoisting() {
+    console.log(hoist);
+    var what = 'Объявление переменной или функции.';
+    console.log('Что поднимется к вершине кода?' + what);
+    hoist = 'поднятие вверх функции и переменных';
+    console.log('Вспдыние это ' + hoist);
+}
+```
+Result:   
+undefined  
+Что поднимется к вершине кода?Объявление переменной или функции.  
+Вспдыние это поднятие вверх функции и переменных  
+
+[Eng:](https://www.digitalocean.com/community/tutorials/understanding-hoisting-in-javascript)
+Hoisting is a JavaScript mechanism where variables and function declarations are moved to the top of their 
+scope before code execution. Of note however, is the fact that the hoisting mechanism only moves the declaration.
+The assignments are left in place. 
+*In JavaScript, an undeclared variable is assigned the value undefined at execution and is also of type undefined.*
+Если мы образается к переменной, которая не была обяъвлена -> *not defined*  
+Если переменная была объявлена, но у нее нет значения -> *undefined*
+ 
+
+#### undefined vs ReferenceError
+
+Before we begin in earnest, let’s deliberate on a few things.
+```javascript
+nconsole.log(typeof variable); // Output: undefined
+```
+This brings us to our first point of note:
+
+    In JavaScript, an undeclared variable is assigned the value undefined at execution and is also of type undefined.
+
+Our second point is:
+```javascript
+console.log(variable); // Output: ReferenceError: variable is not defined
+```
+    In JavaScript, a ReferenceError is thrown when trying to access a previously undeclared variable.
+
+The behaviour of JavaScript when handling variables becomes nuanced because of hoisting. We’ll look at this in depth in subsequent sections.
+
+
+
 
 </div>
 </details>
 
 <details>
-<summary>5.В чем разница между let, var, const?</summary>
+<summary>5.  В чем разница между let, var, const?</summary>
 <div> 
 
-Ответ
 [В чём разница между var, let и const в JavaScript:](https://medium.com/nuances-of-programming/%D0%B2-%D1%87%D1%91%D0%BC-%D1%80%D0%B0%D0%B7%D0%BD%D0%B8%D1%86%D0%B0-%D0%BC%D0%B5%D0%B6%D0%B4%D1%83-var-let-%D0%B8-const-%D0%B2-javascript-3084bfe9f7a3)     
-"Переменная" – это просто свойство специального внутреннего объекта: Environment Record. 
+
+["Переменная"](https://learn.javascript.ru/closure) – это  свойство  внутреннего объекта: Environment Record. 
 «Получить или изменить переменную», означает, «получить или изменить свойство этого объекта».  
 
 5.1 var - *function scoped*
@@ -62,8 +112,6 @@ const person = {
 }person.name = 'Kim Kardashian West' // ✅person = {} // ❌ Assignment to constant variable.
 ```
 
-
-![Ansver_1.png](./img/Ansver_1.png)
 </div>
 
 </details>
