@@ -4,10 +4,10 @@
 <details>
 <summary> 1. Как исполняется Js(как движок Js выполняет код)</summary> 
 <div>
-Js исполняется в 2 прохода.
+Js исполняется в 2 прохода:
 
-1.1 Compilation phase - the process of defining/declaration variables and functions;  
-1.2 Exicution phase - the process of assignement values to the variab les and exicution.  
+1. Compilation phase - the process of defining/declaration variables and functions;  
+2. Exicution phase - the process of assignement values to the variab les and exicution.  
 
 </div>
 </details> 
@@ -16,9 +16,8 @@ Js исполняется в 2 прохода.
 <summary> 2. Что такое Scope и Hoisting в js?</summary>
 <div>  
 
-##Hosting   
-
-2.1 Hoisting/подъем переменных в своем scope (именно их declaration, а не присвоене значений и не выполнение)
+## Hosting   
+Hoisting/подъем переменных в своем scope (именно их declaration, а не присвоене значений и не выполнение)
 Hosting - это JS механизм при котором объявление переменных и функций всплывают на вверх скопа до того как код был выполнен. 
 
 На этапе компеляции, которая происходит перед выполнением кода, код сканируется для объявления функции переменных, 
@@ -70,7 +69,7 @@ console.log(variable); // Output: ReferenceError: variable is not defined
 ```
 In JavaScript, a ReferenceError is thrown when trying to access a previously undeclared variable.  
 
-2.2 Scope/Область видимисти?
+##Scope/Область видимости
 
 In the programming language defines the visibility and lifetime of variables, parameters and functions.
 </div>
@@ -80,14 +79,9 @@ In the programming language defines the visibility and lifetime of variables, pa
 <summary>3.  В чем разница между let, var, const?</summary>
 <div> 
 
-###Cсылки:  
-["var vs let vs const in JavaScript"](https://tylermcginnis.com/var-let-const/)
-["В чём разница между var, let и const в JavaScript:"](https://medium.com/nuances-of-programming/%D0%B2-%D1%87%D1%91%D0%BC-%D1%80%D0%B0%D0%B7%D0%BD%D0%B8%D1%86%D0%B0-%D0%BC%D0%B5%D0%B6%D0%B4%D1%83-var-let-%D0%B8-const-%D0%B2-javascript-3084bfe9f7a3)     
-
 ["Переменная"](https://learn.javascript.ru/closure) – это  свойство  внутреннего объекта: Environment Record. 
 «Получить или изменить переменную», означает, «получить или изменить свойство этого объекта».  
-
-3.1 var - *function scoped* (область видимости перемененой внутри фигурных скобок функции)
+1. var - *function scoped* (область видимости перемененой внутри фигурных скобок функции)
 Если вызвать вне зоны видимости получим ошибку undefined  
 Eng: undefined when accessing a variable before it's declared
 ```javascript
@@ -99,7 +93,7 @@ console.log(date) // ❌ Reference Error
 Объявленным переменным присваивается значение undefined по умолчанию, те если попытаться получить
 доступ к одной из этих переменных до того, как она была фактически объявлена, вернётся undefined 
 
-3.2 let - *block scoped}* (область видимости перемененой внутри первых фигурных скобок)
+2. let - *block scoped}* (область видимости перемененой внутри первых фигурных скобок)
 Если вызвать вне зоны видимости получим ошибку ReferenceError вместо значения undefined.  
 Eng: ReferenceError when accessing a variable before it's declared
 
@@ -115,7 +109,7 @@ function discountPrices (prices, discount) {
 }discountPrices([100, 200, 300], .5) // ❌ ReferenceError: i is not defined
 ```
 
-3.3 const - *block scope*(область видимости перемененой внутри первых фигурных скобок)
+3. const - *block scope*(область видимости перемененой внутри первых фигурных скобок)
 Главное отличие const от let - начение переменной, объявленной с помощью const, нельзя переназначить.  
 
 ```javascript
@@ -129,6 +123,10 @@ const person = {
   name: 'Kim Kardashian'
 }person.name = 'Kim Kardashian West' // ✅person = {} // ❌ Assignment to constant variable.
 ```
+
+##Cсылки:  
+["var vs let vs const in JavaScript"](https://tylermcginnis.com/var-let-const/)
+["В чём разница между var, let и const в JavaScript:"](https://medium.com/nuances-of-programming/%D0%B2-%D1%87%D1%91%D0%BC-%D1%80%D0%B0%D0%B7%D0%BD%D0%B8%D1%86%D0%B0-%D0%BC%D0%B5%D0%B6%D0%B4%D1%83-var-let-%D0%B8-const-%D0%B2-javascript-3084bfe9f7a3)     
 
 </div>
 
