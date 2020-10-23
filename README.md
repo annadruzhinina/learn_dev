@@ -5,14 +5,18 @@
 <summary> 1. Как исполняется Js(как движок Js выполняет код)</summary> 
 <div>
 Js исполняется в 2 прохода.
-  1. Compilation phase - the process of defining/declaration variables and functions;
-  2. Exicution phase - the process of assignement values to the variab les and exicution.
+
+1.1 Compilation phase - the process of defining/declaration variables and functions;  
+1.2 Exicution phase - the process of assignement values to the variab les and exicution.  
+
 </div>
 </details> 
 
 <details>
 <summary> 2. Что такое Scope и Hoisting в js?</summary>
-<div> 
+<div>  
+
+##Hosting   
 
 2.1 Hoisting/подъем переменных в своем scope (именно их declaration, а не присвоене значений и не выполнение)
 Hosting - это JS механизм при котором объявление переменных и функций всплывают на вверх скопа до того как код был выполнен. 
@@ -50,7 +54,7 @@ The assignments are left in place.
 Если переменная была объявлена, но у нее нет значения -> *undefined*
  
 
-#### undefined vs ReferenceError
+#### Undefined vs ReferenceError
 
 Before we begin in earnest, let’s deliberate on a few things.
 ```javascript
