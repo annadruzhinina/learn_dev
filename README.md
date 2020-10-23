@@ -1,20 +1,20 @@
 # Learn_dev
 
 ## Вопросы JS
-## 1. Как исполняется Js (как движок Js выполняет код):
+<details>
+<summary> 1. Как исполняется Js(как движок Js выполняет код)</summary> 
+<div>
 Js исполняется в 2 прохода.
   1. Compilation phase - the process of defining/declaration variables and functions;
   2. Exicution phase - the process of assignement values to the variab les and exicution.
-  
-
-## 2. Scope/Область видимисти?
-In the programming language defines the visibility and lifetime of variables, parameters and functions.
+</div>
+</details> 
 
 <details>
-<summary> 1. Что такое scope и hoisting в js?</summary>
+<summary> 2. Что такое Scope и Hoisting в js?</summary>
 <div> 
 
-1.1 Hoisting/подъем переменных в своем scope (именно их declaration, а не присвоене значений и не выполнение)
+2.1 Hoisting/подъем переменных в своем scope (именно их declaration, а не присвоене значений и не выполнение)
 Hosting - это JS механизм при котором объявление переменных и функций всплывают на вверх скопа до того как код был выполнен. 
 
 На этапе компеляции, которая происходит перед выполнением кода, код сканируется для объявления функции переменных, 
@@ -64,9 +64,11 @@ Our second point is:
 ```javascript
 console.log(variable); // Output: ReferenceError: variable is not defined
 ```
-    In JavaScript, a ReferenceError is thrown when trying to access a previously undeclared variable.
+In JavaScript, a ReferenceError is thrown when trying to access a previously undeclared variable.  
 
+2.2 Scope/Область видимисти?
 
+In the programming language defines the visibility and lifetime of variables, parameters and functions.
 </div>
 </details>
 
