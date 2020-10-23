@@ -1,31 +1,45 @@
 # Learn_dev
 
 ## Вопросы JS
+## 1. Как исполняется Js (как движок Js выполняет код):
+Js исполняется в 2 прохода.
+  1. Compilation phase - the process of defining/declaration variables and functions;
+  2. Exicution phase - the process of assignement values to the variab les and exicution.
+  
+
+## 2. Scope/Область видимисти?
+In the programming language defines the visibility and lifetime of variables, parameters and functions.
 
 <details>
 <summary> 1. Что такое scope и hoisting в js?</summary>
 <div> 
-1.1 Hosting - это JS механизм при котором объявление переменных и функций всплывают на вверх скопа до того как код был выполнен. 
+
+1.1 Hoisting/подъем переменных в своем scope (именно их declaration, а не присвоене значений и не выполнение)
+Hosting - это JS механизм при котором объявление переменных и функций всплывают на вверх скопа до того как код был выполнен. 
 
 На этапе компеляции, которая происходит перед выполнением кода, код сканируется для объявления функции переменных, 
 которые затем добавляются в память что позволяет быть использованными даже до того как они были обявлены в исходном коде.
 Декларирование и объявление поднимается в начало кода, а присвоение значений остается на своем месте.
-Мы уходим от ошибок объявления переменных.   
+Мы уходим от ошибок объявления переменных.     
+
 ```javascript
-let hoist;
-hoisting();
-function hoisting() {
-    console.log(hoist);
-    var what = 'Объявление переменной или функции.';
-    console.log('Что поднимется к вершине кода?' + what);
-    hoist = 'поднятие вверх функции и переменных';
-    console.log('Вспдыние это ' + hoist);
+function hoist() {
+  a = 20;
+  var b = 100;
 }
-```
-Result:   
-undefined  
-Что поднимется к вершине кода?Объявление переменной или функции.  
-Вспдыние это поднятие вверх функции и переменных  
+hoist();
+console.log(a);
+/*
+Accessible as a global variable outside hoist() function
+Output: 20
+*/
+console.log(b);
+/*
+Since it was declared, it is confined to the hoist() function scope.
+We can't print it out outside the confines of the hoist() function.
+Output: ReferenceError: b is not defined
+*/
+``` 
 
 [Eng:](https://www.digitalocean.com/community/tutorials/understanding-hoisting-in-javascript)
 Hoisting is a JavaScript mechanism where variables and function declarations are moved to the top of their 
@@ -52,24 +66,22 @@ console.log(variable); // Output: ReferenceError: variable is not defined
 ```
     In JavaScript, a ReferenceError is thrown when trying to access a previously undeclared variable.
 
-The behaviour of JavaScript when handling variables becomes nuanced because of hoisting. We’ll look at this in depth in subsequent sections.
-
-
-
 
 </div>
 </details>
 
 <details>
-<summary>5.  В чем разница между let, var, const?</summary>
+<summary>3.  В чем разница между let, var, const?</summary>
 <div> 
 
-[В чём разница между var, let и const в JavaScript:](https://medium.com/nuances-of-programming/%D0%B2-%D1%87%D1%91%D0%BC-%D1%80%D0%B0%D0%B7%D0%BD%D0%B8%D1%86%D0%B0-%D0%BC%D0%B5%D0%B6%D0%B4%D1%83-var-let-%D0%B8-const-%D0%B2-javascript-3084bfe9f7a3)     
+###Cсылки:  
+["var vs let vs const in JavaScript"](https://tylermcginnis.com/var-let-const/)
+["В чём разница между var, let и const в JavaScript:"](https://medium.com/nuances-of-programming/%D0%B2-%D1%87%D1%91%D0%BC-%D1%80%D0%B0%D0%B7%D0%BD%D0%B8%D1%86%D0%B0-%D0%BC%D0%B5%D0%B6%D0%B4%D1%83-var-let-%D0%B8-const-%D0%B2-javascript-3084bfe9f7a3)     
 
 ["Переменная"](https://learn.javascript.ru/closure) – это  свойство  внутреннего объекта: Environment Record. 
 «Получить или изменить переменную», означает, «получить или изменить свойство этого объекта».  
 
-5.1 var - *function scoped*
+3.1 var - *function scoped* (область видимости перемененой внутри фигурных скобок функции)
 Если вызвать вне зоны видимости получим ошибку undefined  
 Eng: undefined when accessing a variable before it's declared
 ```javascript
@@ -78,10 +90,10 @@ function getDate () {
 }getDate()
 console.log(date) // ❌ Reference Error
 ```
- Объявленным переменным присваивается значение undefined по умолчанию. Если вы попытаетесь получить
-доступ к одной из этих переменных до того, как она была фактически объявлена, вам вернётся undefined 
+Объявленным переменным присваивается значение undefined по умолчанию, те если попытаться получить
+доступ к одной из этих переменных до того, как она была фактически объявлена, вернётся undefined 
 
-5.2 let - *block scoped {}* 
+3.2 let - *block scoped}* (область видимости перемененой внутри первых фигурных скобок)
 Если вызвать вне зоны видимости получим ошибку ReferenceError вместо значения undefined.  
 Eng: ReferenceError when accessing a variable before it's declared
 
@@ -97,7 +109,7 @@ function discountPrices (prices, discount) {
 }discountPrices([100, 200, 300], .5) // ❌ ReferenceError: i is not defined
 ```
 
-5.3 const - *block scope {}*
+3.3 const - *block scope*(область видимости перемененой внутри первых фигурных скобок)
 Главное отличие const от let - начение переменной, объявленной с помощью const, нельзя переназначить.  
 
 ```javascript
@@ -117,9 +129,23 @@ const person = {
 </details>
 
 <details>
-<summary>3. Что такое DOM/BOM API?</summary>
+<summary>4. Closures/замыкание.
 <div> 
-Ответ
+Пример:
+
+```javascript
+function outerFunc() {
+// the outer scope
+let outerVar = 'I am outside!';
+function innerFunc() {
+    // the inner scope
+}
+console.log(outerVar); // => logs "I am outside!"
+}
+innerFunc();
+```
+}</summary>
 
 </div>
+</summary>
 </details>
