@@ -129,23 +129,60 @@ const person = {
 </details>
 
 <details>
-<summary>4. Closures/замыкание.
-<div> 
-Пример:
+<summary>4. Closures/замыкание.</summary>
+<div>
+
+##Определение
+Замыкание — это функция, объявленная внутри другой функции и имеющая доступ к переменным внешней (вмещающей) функции и ее параметрам.
+Другими словами -> замыкание дает вам доступ к Scope внешней функции из внутренней функции.
+Замыкание имеет доступ сразу к трем областям видимости:
+
+4.1 к своей собственной области видимости (переменные, объявленные внутри замыкания);
+4.2 к области видимости внешней функции (переменные и, объявленные внутри внешней функции)
+4.3 к глобальной области видимости.    
+
+##Пример
 
 ```javascript
-function outerFunc() {
-// the outer scope
-let outerVar = 'I am outside!';
-function innerFunc() {
-    // the inner scope
-}
-console.log(outerVar); // => logs "I am outside!"
-}
-innerFunc();
-```
-}</summary>
+function showName(firstName, lastName) {
+    var nameIntro = "Your name is ";
 
+    function makeFullName() {
+        return nameIntro + firstName + " " + lastName;
+    }
+
+    return makeFullName();
+}
+```
+Замыкания_хранят_ссылки_на_переменные_внешней_функции_а_не_фактические_значения
+
+Такая интересная особенность позволяет описывать приватные переменные.
+
+```javascript
+function user() {
+    var name = ‘Unknown’;
+    return {
+        getName: function() {
+            return name;
+        },
+        setName: function(newName) {
+            name = newName;
+        }
+
+
+    }
+}
+
+var testUser = user();
+testUser.getName(); // Unknown
+testUser.setName(‘John Smith’); // Изменяем значение приватной переменной
+testUser.getName(); // John Smith
+
+showName("Michael", "Jackson"); // Your name is Michael Jackson 
+```
+Полезные_ссылки_и_спасибо_за_предоставленные_материалы:
+
+["Замыкания"](https://developer.mozilla.org/ru/docs/Web/JavaScript/Closures)  
+["Замыкания в JavaScript"](http://getinstance.info/articles/javascript/closures-in-javascript/)
 </div>
-</summary>
 </details>
