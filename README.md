@@ -17,32 +17,16 @@ Js исполняется в 2 прохода:
 <div>  
 
 ## Hosting   
-Hoisting/подъем переменных в своем scope (именно их declaration, а не присвоене значений и не выполнение)
-Hosting - это JS механизм при котором объявление переменных и функций всплывают на вверх скопа до того как код был выполнен. 
-
-На этапе компеляции, которая происходит перед выполнением кода, код сканируется для объявления функции переменных, 
-которые затем добавляются в память что позволяет быть использованными даже до того как они были обявлены в исходном коде.
+Hosting - это JS механизм при котором объявление переменных и функций всплывают на вверх внутри своего scope (именно их declaration, а не присвоене значений и не выполнение) до того как код был выполнен (речь идет о фазе компеляции). 
 Декларирование и объявление поднимается в начало кода, а присвоение значений остается на своем месте.
-Мы уходим от ошибок объявления переменных.     
 
 ```javascript
 function hoist() {
-  a = 20;
-  var b = 100;
+  var a = 20;
+  console.log(a);
 }
 hoist();
-console.log(a);
-/*
-Accessible as a global variable outside hoist() function
-Output: 20
-*/
-console.log(b);
-/*
-Since it was declared, it is confined to the hoist() function scope.
-We can't print it out outside the confines of the hoist() function.
-Output: ReferenceError: b is not defined
-*/
-``` 
+
 
 [Eng:](https://www.digitalocean.com/community/tutorials/understanding-hoisting-in-javascript)
 Hoisting is a JavaScript mechanism where variables and function declarations are moved to the top of their 
