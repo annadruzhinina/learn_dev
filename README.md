@@ -54,7 +54,7 @@ console.log(variable); // Output: ReferenceError: variable is not defined
 In JavaScript, a ReferenceError is thrown when trying to access a previously undeclared variable.  
 
 
-##Scope/Область видимости
+## Scope/Область видимости
 
 In the programming language defines the visibility and lifetime of variables, parameters and functions.
 </div>
@@ -109,7 +109,7 @@ const person = {
 }person.name = 'Kim Kardashian West' // ✅person = {} // ❌ Assignment to constant variable.
 ```
 
-##Cсылки:
+## Cсылки:
 
 ["var vs let vs const in JavaScript"](https://tylermcginnis.com/var-let-const/)
 ["В чём разница между var, let и const в JavaScript:"](https://medium.com/nuances-of-programming/%D0%B2-%D1%87%D1%91%D0%BC-%D1%80%D0%B0%D0%B7%D0%BD%D0%B8%D1%86%D0%B0-%D0%BC%D0%B5%D0%B6%D0%B4%D1%83-var-let-%D0%B8-const-%D0%B2-javascript-3084bfe9f7a3)     
@@ -122,7 +122,7 @@ const person = {
 <summary>4. Closures/замыкание.</summary>
 <div>
 
-##Определение
+## Определение
 Замыкание — это функция, объявленная внутри другой функции и имеющая доступ к переменным внешней (вмещающей) функции и ее параметрам.
 Другими словами -> замыкание дает вам доступ к Scope внешней функции из внутренней функции.
 Замыкание имеет доступ сразу к трем областям видимости:
@@ -131,7 +131,7 @@ const person = {
 4.2 к области видимости внешней функции (переменные и, объявленные внутри внешней функции)
 4.3 к глобальной области видимости.    
 
-##Пример 
+## Пример 
 
 ```javascript
 function showName(firstName, lastName) {
